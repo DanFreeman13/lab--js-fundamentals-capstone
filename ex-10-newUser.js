@@ -18,6 +18,24 @@
 **/
 
 
+function User(userName,userType) {
+
+	var newObj = {
+		name: userName,
+		role: userType,
+		createdAt: Date.now(),
+		hasPermissions : function (checker) {
+			if (this.role === checker[0] || this.role === checker[1]) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+
+	return newObj;
+}
+
  //*~*~*-*~*~*~*~*~ Don't Touch *~*~*~*~*~*~*~*~*~*~*~
 
 var simpleUser = new User('jill88', 'visitor')
@@ -70,6 +88,6 @@ console.log("=======================================");
 console.log();
 
 console.log("[10] Should return true for permissions");
-console.assert(simpleUser.hasPermissions(contentCreatorList) === true )
+console.assert(adminUser.hasPermissions(contentCreatorList) === true )
 console.log("=======================================");
 console.log();

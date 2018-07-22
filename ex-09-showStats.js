@@ -17,12 +17,35 @@
  *   }
 **/
 
+function showStats (num, arrayOfNumbers) {
 
+	var objOfProps = {};
+	var arrayLength = arrayOfNumbers.length;
+  	var counterSame = 0;
+	var counterSmaller = 0;
+	var counterLarger = 0;
 
+	for (var i=0; i<arrayLength; i++) {
+		var checkNum = arrayOfNumbers[i];
 
-
-
-
+		if (num === checkNum) {
+			counterSame++;
+		}
+		if (num > checkNum) {
+			counterLarger++;
+		}
+		if (num < checkNum){
+			counterSmaller++;
+		}
+	}
+	
+	objOfProps["count_inputEqualTo"] = counterSame;
+	objOfProps["count_inputGreaterThan"] = counterLarger;
+	objOfProps["count_inputLessThan"] = counterSmaller;
+	objOfProps["inputArraySize"] = arrayLength;
+	
+	return objOfProps;
+}
 
 //*~*~*-*~*~*~*~*~ Don't Touch *~*~*~*~*~*~*~*~*~*~*~
 

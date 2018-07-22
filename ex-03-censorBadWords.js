@@ -7,6 +7,35 @@
  *
 **/
 
+function censorBadWords (badWordsArray, text) {
+	var censoredSpeech = [];
+	var textArray = text.split(" ");
+
+	for (var i=0; i<textArray.length; i++) {
+    
+    var contador = 0;
+		var word = textArray[i];
+
+		for (var j=0; j<badWordsArray.length; j++){
+      var badWord = badWordsArray[j];
+      
+			if (word === badWord) {
+				contador++;
+			}  
+		}
+    
+    if (contador > 0) {
+      censoredSpeech.push("****")
+    } else {
+      censoredSpeech.push(word);
+    }
+    
+	}
+  
+  return censoredSpeech.join(" ");
+}
+
+
 var badWords = ['heck', 'darn', 'dang', 'crappy', 'crud', 'crap', 'freaking']
 var badWords2 = ['idiot',  'crap', 'freaking']
 

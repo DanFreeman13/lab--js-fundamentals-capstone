@@ -8,15 +8,39 @@
  *
 **/
 
+function getWordCount(inpuText) {
+	var newArray = "";
+	var objWithCounters = {};
 
+	for (var i=0; i<inpuText.length; i++) {
+		var char = inpuText[i];
+		if (char !== "," && char !== "." && char !== "?" && char !== "!") {
+			newArray += char;
+		} else {
+			newArray += "";
+		}
+	}
 
+	newArray = newArray.toLowerCase();
 
+	newArray = newArray.split(" ");
 
+	for (var i=0; i<newArray.length; i++) {
+		var word = newArray[i];
+		var counter = 0;
 
+		for (var j = newArray.length -1; j>=0; j--) {
+			if (word === newArray[j]) {
+				counter++;
+			}
+		}
 
+		objWithCounters[word] = counter;
 
+	}
 
-
+	return objWithCounters;
+}
 
 //*~*~*-*~*~*~*~*~ Don't Touch *~*~*~*~*~*~*~*~*~*~*~
 

@@ -20,9 +20,39 @@
 *
 **/
 
+function encodeURL (notURL) {
 
-
-
+	var codedURL = "";
+	var newArray = notURL.split("");
+  
+  for (var i=0; i<newArray.length; i++) {
+    var char = newArray[i];
+    
+    if (char === " ") {
+      char = "%20";
+      codedURL += char;
+    } else if (char === "!") {
+      char = "%21";
+      codedURL += char;
+    } else if (char === '"') {
+      char = "%22";
+      codedURL += char;
+    } else if (char === "$") {
+      char = "%24";
+      codedURL += char;
+    } else if (char === "%") {
+      char = "%25";
+      codedURL += char;
+    } else if (char === "'") {
+      char = "%27";
+      codedURL += char;
+    } else if (char !== " " || char !== "!" || char !== '"' ||
+        char !== "$" || char !== "%" || char !== "'") {
+      codedURL += char;
+    }
+  }
+	return codedURL;
+}
 
 //*~*~*-*~*~*~*~*~ Don't Touch *~*~*~*~*~*~*~*~*~*~*~
 

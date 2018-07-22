@@ -6,7 +6,23 @@
  *
 **/
 
+function getCapitalLetters (text) {
 
+	var capitals = [];
+
+	for (var i = 0; i<text.length; i ++) {
+
+		var letter = text[i]
+
+		if (letter === letter.toUpperCase() && letter !== " ") {
+
+
+			capitals.push (letter);
+	}
+}
+
+	return capitals;
+}
 
 
 

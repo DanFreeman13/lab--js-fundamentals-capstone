@@ -8,12 +8,42 @@
   *
  **/
 
-
-
-
-
-
-
+function where (list, test) {
+  
+  var createArray = [];
+  var nameProps = Object.keys(test);
+  
+  if (nameProps.length === 1) {
+    for (var i = 0; i<list.length; i++) {
+      var object = list[i];
+      var property = nameProps[0];
+      var newObj = {};
+      
+      if (object[property] === test[property]) {
+        var newTitle = object.title;
+        newObj.title = newTitle;
+        createArray.push(newObj);
+      }
+    }
+    return createArray;
+  }
+  
+  if (nameProps.length === 2) {
+    for (var i = 0; i<list.length; i++) {
+      var object = list[i];
+      var property1 = nameProps[0];
+      var property2 = nameProps[1];
+      var newObj = {};
+      
+      if (object[property1] === test[property1] && object[property2] === test[property2]) {
+        var newTitle = object.title;
+        newObj.title = newTitle;
+        createArray.push(newObj);
+      }
+    }
+    return createArray;
+  }
+}
 
 //*~*~*-*~*~*~*~*~ Don't Touch *~*~*~*~*~*~*~*~*~*~*~
 

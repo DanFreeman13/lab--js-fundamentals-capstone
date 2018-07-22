@@ -9,13 +9,29 @@
  *
 **/
 
-
-
-
-
-
-
-
+function merge(obj1, obj2) {
+	var propsObj1 = Object.keys(obj1);
+	var propsObj2 = Object.keys(obj2);
+  
+  var newOutput = {};
+  
+  //console.log(propsObj1, propsObj2);
+  
+  for (var i=propsObj1.length -1; i>=0; i--) {
+    var propName = propsObj1[i];
+    newOutput[propName] = obj1[propName];
+    //console.log(newOutput);
+  }
+  
+  for (var j=0; j<propsObj2.length; j++) {
+    var propName = propsObj2[j];
+    newOutput[propName] = obj2[propName];
+    //console.log(newOutput);
+  }
+  
+  return newOutput;
+  
+}
 
 //*~*~*-*~*~*~*~*~ Don't Touch *~*~*~*~*~*~*~*~*~*~*~
 var obj1 = {name: "Shaman Tilroy", age: 33, id: 6288}

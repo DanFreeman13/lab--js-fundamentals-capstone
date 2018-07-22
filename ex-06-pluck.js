@@ -9,6 +9,22 @@
  *
 **/
 
+function pluck (arrainput, prop) {
+
+	var outputArr = [];
+	var object = undefined;
+
+	for (var i= 0; i<arrainput.length; i++) {
+		object = arrainput[i]
+    
+    var propiedad= object[prop];
+		outputArr.push(propiedad);
+    
+	}
+
+	return outputArr;
+}
+
 
 //*~*~*-*~*~*~*~*~ Don't Touch *~*~*~*~*~*~*~*~*~*~*~
 
